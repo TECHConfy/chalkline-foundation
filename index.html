@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chalkline Foundation | Classrooms worth learning in</title>
+<meta name="description" content="Chalkline Foundation repairs and equips classrooms in public primary schools across Nigeria. See our projects, give, or sign up to volunteer.">
+<meta name="theme-color" content="#20372c">
+<meta property="og:title" content="Chalkline Foundation | Classrooms worth learning in">
+<meta property="og:description" content="We repair and equip classrooms in public primary schools across Nigeria.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2320372c'/%3E%3Cpath d='M9 9v14M16 9v14M23 9v14M6 21l20-10' stroke='%23f3f1ea' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  --board:#20372c;
+  --chalk:#f3f1ea;
+  --pencil:#f2b705;
+  --ink:#14213d;
+  --muted:#46546a;
+  --rule:#bcd3ea;
+  --margin:#c8423b;
+  --paper:#ffffff;
+  --tint:#f4f7fb;
+  --wood:#8b5e34;
+  --focus:#0b5cad;
+  --fill:#1f6f4a;
+  --slab:Rockwell,"Rockwell Nova","Roboto Slab","Zilla Slab",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:1rem;line-height:1.6;color:var(--ink);background:var(--paper)}
+img,svg{max-width:100%}
+.container{width:min(100% - 2.5rem,68rem);margin-inline:auto}
+
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.board :focus-visible,.site-footer :focus-visible{outline-color:var(--pencil)}
+.skip{position:absolute;left:-999px;top:0;background:var(--pencil);color:#1a1405;padding:.75rem 1rem;font-weight:700;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+
+/* Header */
+.top{background:var(--paper);border-bottom:1px solid #dfe6ee;padding:.75rem 0}
+.top .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;font:700 1.1rem/1.2 var(--slab);color:var(--ink);text-decoration:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.3rem;border-radius:6px;font:700 1rem/1.2 var(--sans);text-decoration:none;border:2px solid transparent;cursor:pointer;text-align:center}
+.btn-solid{background:var(--board);color:#fff}
+.btn-solid:hover{background:#142319}
+.btn-chalk{background:var(--pencil);color:#1a1405}
+.btn-chalk:hover{background:#ffc925}
+.btn-ghost{border-color:var(--chalk);color:var(--chalk);background:transparent}
+.btn-ghost:hover{background:rgba(243,241,234,.12)}
+.btn-line{border-color:var(--board);color:var(--board);background:#fff}
+.btn-line:hover{background:var(--tint)}
+.btn[disabled]{opacity:.7;cursor:progress}
+
+/* Hero: the chalkboard */
+.board{background:radial-gradient(ellipse at 15% 0%,rgba(255,255,255,.07),transparent 60%),var(--board);color:var(--chalk);border-bottom:14px solid var(--wood);padding:3rem 0 2.5rem}
+.board h1{font:700 clamp(2.1rem,7.5vw,3.7rem)/1.1 var(--slab);margin:0 0 1rem;max-width:20ch;letter-spacing:-.01em}
+.lead{font-size:1.125rem;max-width:36rem;margin:0;color:#dfe8e1}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.75rem 0 2.25rem}
+.tally-wrap{margin:0;border-top:2px solid rgba(243,241,234,.25);padding-top:1.5rem}
+#tally{display:flex;flex-wrap:wrap;gap:.5rem .75rem}
+#tally svg{width:52px;height:48px;fill:none;stroke:var(--chalk);stroke-width:3.4;stroke-linecap:round;overflow:visible}
+#tally path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .35s ease-out forwards;animation-delay:calc(var(--d) * 35ms)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tally-wrap figcaption{margin-top:1rem;font-family:var(--slab);font-size:1.1rem}
+.tally-wrap strong{font-size:2.6rem;line-height:1;color:var(--pencil);margin-right:.35rem}
+
+/* Sections */
+.section{padding:3.5rem 0}
+.section.tinted{background:var(--tint)}
+h2{font:700 clamp(1.6rem,5vw,2.2rem)/1.2 var(--slab);margin:0 0 .5rem}
+.note{margin:0;color:var(--muted)}
+
+/* Report card, ruled like an exercise book */
+.sheet{position:relative;background:var(--paper);border:1px solid #d5dde8;max-width:40rem;margin-top:1.5rem;padding:.5rem 1.25rem .5rem 3.25rem}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:2.25rem;width:2px;background:var(--margin)}
+.sheet dl{margin:0}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--rule)}
+.row:last-child{border-bottom:0}
+.row dt{color:var(--muted)}
+.row dd{margin:0;font:700 1.9rem/1.1 var(--slab);font-variant-numeric:tabular-nums}
+
+/* Projects, styled as exercise books with a coloured spine */
+.projects{display:grid;gap:1.25rem;margin-top:1.5rem;padding:0;list-style:none}
+@media (min-width:760px){.projects{grid-template-columns:repeat(3,1fr)}}
+.book{display:flex;flex-direction:column;height:100%;background:var(--paper);border:1px solid #d5dde8;border-left:14px solid var(--spine);border-radius:3px 10px 10px 3px;padding:1.25rem 1.25rem 1.4rem}
+.book h3{font:700 1.25rem/1.25 var(--slab);margin:0 0 .35rem}
+.where{margin:0 0 .75rem;color:var(--muted);font-size:.9rem}
+.book p{margin:0}
+.raised{margin-top:1rem!important;font-size:.95rem;font-weight:600}
+.give{margin-top:auto;width:100%}
+.book progress{margin-bottom:1.1rem}
+progress{appearance:none;-webkit-appearance:none;display:block;width:100%;height:12px;margin-top:.5rem;border:0;border-radius:6px;background:#dfe5ec;overflow:hidden;color:var(--fill)}
+progress::-webkit-progress-bar{background:#dfe5ec}
+progress::-webkit-progress-value{background:var(--fill)}
+progress::-moz-progress-bar{background:var(--fill)}
+
+/* Forms */
+.page{position:relative;background:var(--paper);border:1px solid #d5dde8;max-width:40rem;margin-top:1.5rem;padding:1.5rem 1.25rem 1.75rem 3.25rem}
+.page::before{content:"";position:absolute;top:0;bottom:0;left:2.25rem;width:2px;background:var(--margin)}
+.field{margin-bottom:1.1rem}
+label,legend{font-weight:700}
+label{display:block;margin-bottom:.35rem}
+.hint{font-weight:400;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{width:100%;min-height:48px;padding:.65rem .75rem;font:inherit;color:var(--ink);background:#fff;border:2px solid #6b7c93;border-radius:6px}
+textarea{min-height:7rem;resize:vertical}
+fieldset{border:0;padding:0;margin:0 0 1.1rem}
+legend{padding:0;margin-bottom:.35rem}
+.check{display:flex;align-items:center;gap:.65rem;min-height:44px;margin:0;font-weight:400}
+.check input{width:22px;height:22px;margin:0;accent-color:var(--board);flex:none}
+.two{display:grid;gap:0 1rem}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{margin:1.25rem 0 0;padding:.9rem 1rem;border-left:4px solid}
+.status[hidden]{display:none}
+.status.ok{background:#e8f4ec;color:#14452a;border-color:var(--fill)}
+.status.err{background:#fdecea;color:#7a1c14;border-color:var(--margin)}
+
+/* Donate dialog */
+dialog{border:0;border-radius:10px;padding:0;width:min(92vw,28rem);color:var(--ink);background:var(--paper);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(20,33,61,.6)}
+.dlg{padding:1.5rem 1.25rem}
+.dlg h2{font-size:1.4rem}
+.test-note{margin:0 0 1rem;font-size:.9rem;color:var(--muted)}
+.presets{display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 .75rem}
+.preset{min-height:44px;padding:.4rem .9rem;border:2px solid var(--board);border-radius:6px;background:#fff;color:var(--board);font:700 1rem var(--sans);cursor:pointer}
+.preset[aria-pressed=true]{background:var(--board);color:#fff}
+.dlg-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+
+/* Footer */
+.site-footer{background:var(--board);color:var(--chalk);padding:2rem 0;font-size:.95rem}
+.site-footer p{margin:0 0 .5rem}
+.site-footer a{color:var(--pencil)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  #tally path{animation:none;stroke-dashoffset:0}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="top">
+  <div class="container">
+    <a class="brand" href="#top" aria-label="Chalkline Foundation, home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#20372c"/><path d="M9 9v14M16 9v14M23 9v14M6 21l20-10" stroke="#f3f1ea" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+      Chalkline Foundation
+    </a>
+    <a class="btn btn-solid" href="#volunteer">Volunteer</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="board" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 id="hero-title">Every child deserves a classroom worth learning in.</h1>
+      <p class="lead">Chalkline Foundation repairs and equips classrooms in public primary schools across Nigeria, so pupils learn under a dry roof, at a proper desk, with books in reach.</p>
+      <div class="cta">
+        <a class="btn btn-chalk" href="#projects">Give to a project</a>
+        <a class="btn btn-ghost" href="#volunteer">Volunteer with us</a>
+      </div>
+      <figure class="tally-wrap">
+        <div id="tally" role="img" aria-label="48 classrooms renovated, shown as tally marks"></div>
+        <figcaption><strong data-stat="classrooms">48</strong> classrooms renovated since 2019</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="report" aria-labelledby="report-title">
+    <div class="container">
+      <h2 id="report-title">Our report card</h2>
+      <p class="note" id="report-note">Sample figures for this demo.</p>
+      <div class="sheet">
+        <dl>
+          <div class="row"><dt>Classrooms renovated</dt><dd data-stat="classrooms">48</dd></div>
+          <div class="row"><dt>Pupils learning in them</dt><dd data-stat="pupils">2,160</dd></div>
+          <div class="row"><dt>Schools reached</dt><dd data-stat="schools">17</dd></div>
+          <div class="row"><dt>States covered</dt><dd data-stat="states">4</dd></div>
+          <div class="row"><dt>Volunteers this year</dt><dd data-stat="volunteers">320</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted" id="projects" aria-labelledby="projects-title">
+    <div class="container">
+      <h2 id="projects-title">Where your help goes this term</h2>
+      <p class="note">Each project has a fixed cost. The bar shows how much has been raised.</p>
+      <ul class="projects">
+        <li>
+          <article class="book" style="--spine:#20372c">
+            <h3>Fix the roof and floor</h3>
+            <p class="where">Public primary school, Ogun State</p>
+            <p>New roof sheets, a concrete floor, doors and windows for two classrooms.</p>
+            <p class="raised" id="p1">Raised ₦1,360,000 of ₦2,000,000</p>
+            <progress aria-labelledby="p1" value="1360000" max="2000000">68%</progress>
+            <button class="btn btn-solid give" type="button" data-project="Fix the roof and floor">Give to this project</button>
+          </article>
+        </li>
+        <li>
+          <article class="book" style="--spine:#2a5d9f">
+            <h3>Back to school kits</h3>
+            <p class="where">Public primary schools, Oyo State</p>
+            <p>Bags, exercise books and pencils for 300 pupils starting the new term.</p>
+            <p class="raised" id="p2">Raised ₦480,000 of ₦1,200,000</p>
+            <progress aria-labelledby="p2" value="480000" max="1200000">40%</progress>
+            <button class="btn btn-solid give" type="button" data-project="Back to school kits">Give to this project</button>
+          </article>
+        </li>
+        <li>
+          <article class="book" style="--spine:#d99a00">
+            <h3>Reading corners</h3>
+            <p class="where">Public primary school, Lagos State</p>
+            <p>Shelves and 500 story books for classrooms that have none.</p>
+            <p class="raised" id="p3">Raised ₦910,000 of ₦1,000,000</p>
+            <progress aria-labelledby="p3" value="910000" max="1000000">91%</progress>
+            <button class="btn btn-solid give" type="button" data-project="Reading corners">Give to this project</button>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="volunteer" aria-labelledby="volunteer-title">
+    <div class="container">
+      <h2 id="volunteer-title">Volunteer with us</h2>
+      <p class="note">Tell us how you would like to help. We reply within three working days.</p>
+
+      <form class="page" id="vol-form" action="#" method="post" novalidate>
+        <div class="two">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" minlength="2" maxlength="80" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="120" required>
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label for="phone">Phone <span class="hint">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="20">
+          </div>
+          <div class="field">
+            <label for="state">Where are you based?</label>
+            <select id="state" name="state" required>
+              <option value="">Choose a state</option>
+              <option>Lagos</option>
+              <option>Ogun</option>
+              <option>Oyo</option>
+              <option>Abuja (FCT)</option>
+              <option>Another state</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>How can you help?</legend>
+          <label class="check"><input type="checkbox" name="help" value="Teaching or tutoring"> Teaching or tutoring</label>
+          <label class="check"><input type="checkbox" name="help" value="Fundraising"> Fundraising</label>
+          <label class="check"><input type="checkbox" name="help" value="Photography or video"> Photography or video</label>
+          <label class="check"><input type="checkbox" name="help" value="Tech or website"> Tech or website</label>
+          <label class="check"><input type="checkbox" name="help" value="Event support"> Event support</label>
+        </fieldset>
+
+        <div class="field">
+          <label for="message">Anything else we should know? <span class="hint">(optional)</span></label>
+          <textarea id="message" name="message" maxlength="1000"></textarea>
+        </div>
+
+        <!-- Spam trap: real people never see or fill this. Bots often do. -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label class="check"><input type="checkbox" name="consent" required> I agree that Chalkline Foundation may contact me about volunteering.</label>
+        </div>
+
+        <button class="btn btn-solid" type="submit">Send my details</button>
+        <p class="status" id="form-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<dialog id="give-dialog" aria-labelledby="give-title">
+  <form class="dlg" id="give-form" method="dialog" novalidate>
+    <h2 id="give-title">Give to this project</h2>
+    <p class="test-note" id="give-project"></p>
+
+    <div class="field">
+      <label for="amount">Amount in naira</label>
+      <div class="presets" role="group" aria-label="Quick amounts">
+        <button class="preset" type="button" data-amount="1000" aria-pressed="false">₦1,000</button>
+        <button class="preset" type="button" data-amount="5000" aria-pressed="true">₦5,000</button>
+        <button class="preset" type="button" data-amount="10000" aria-pressed="false">₦10,000</button>
+      </div>
+      <input type="number" id="amount" name="amount" inputmode="numeric" min="500" max="5000000" step="100" value="5000" required>
+    </div>
+
+    <div class="field">
+      <label for="give-email">Your email <span class="hint">(for your receipt)</span></label>
+      <input type="email" id="give-email" name="email" autocomplete="email" maxlength="120" required>
+    </div>
+
+    <p class="status" id="give-status" role="status" aria-live="polite" hidden></p>
+
+    <div class="dlg-actions">
+      <button class="btn btn-solid" type="submit" id="give-submit">Continue to payment</button>
+      <button class="btn btn-line" type="button" id="give-cancel">Close</button>
+    </div>
+  </form>
+</dialog>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>Chalkline Foundation</strong> &middot; hello@chalkline.example</p>
+    <p>A fictional organisation made as a portfolio practice project. All names and figures are samples. Payments run in Paystack test mode, so no real money moves.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============================================================
+     SETTINGS: the only part you edit.
+     1. ENDPOINT: https://script.google.com/macros/s/AKfycbx9tBkpVytx7NbwbjfwZyKptGrf7mn2HhbR7LoDN0h-FbmIqhRL5cc1VtdNmceQ0yIv2A/exec
+     2. PAYSTACK_PUBLIC_KEY: your TEST public key, starts with pk_test_ (Saturday).
+     NEVER paste a secret key (sk_...) in this file. It is public to everyone.
+     ============================================================ */
+  var CONFIG = {
+    ENDPOINT: 'https://script.google.com/macros/s/AKfycbx9tBkpVytx7NbwbjfwZyKptGrf7mn2HhbR7LoDN0h-FbmIqhRL5cc1VtdNmceQ0yIv2A/exec',
+    PAYSTACK_PUBLIC_KEY: 'pk_test_76937d4976411f36a7770bd8d512f55aed37ed40'
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var money = new Intl.NumberFormat('en-NG');
+
+  function show(el, kind, msg) {
+    el.className = 'status ' + kind;
+    el.textContent = msg;
+    el.hidden = false;
+  }
+
+  /* ---------- Tally marks: one group of five per five classrooms ---------- */
+  var tally = $('tally');
+  var NS = 'http://www.w3.org/2000/svg';
+
+  function drawTally(total) {
+    total = Math.max(0, Math.min(150, Math.round(total)));
+    tally.textContent = '';
+    tally.setAttribute('aria-label', total + ' classrooms renovated, shown as tally marks');
+    var d = 0;
+    function line(path) {
+      var p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', path);
+      p.setAttribute('pathLength', '1');
+      p.style.setProperty('--d', d++);
+      return p;
+    }
+    for (var g = 0; g < Math.ceil(total / 5); g++) {
+      var n = Math.min(5, total - g * 5);
+      var s = document.createElementNS(NS, 'svg');
+      s.setAttribute('viewBox', '0 0 52 48');
+      s.setAttribute('aria-hidden', 'true');
+      for (var i = 0; i < Math.min(n, 4); i++) {
+        var j = ((g * 7 + i * 3) % 5 - 2) * 0.6;
+        var x = 9 + i * 11;
+        s.appendChild(line('M' + x + ' 7L' + (x + j) + ' 41'));
+      }
+      if (n === 5) s.appendChild(line('M3 35L49 13'));
+      tally.appendChild(s);
+    }
+  }
+  drawTally(48);
+
+  /* ---------- Live numbers from the Google Sheet ---------- */
+  function loadStats() {
+    if (!CONFIG.ENDPOINT) return;
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 7000);
+    fetch(CONFIG.ENDPOINT + '?action=stats', { signal: ctrl.signal })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var changed = false;
+        document.querySelectorAll('[data-stat]').forEach(function (el) {
+          var v = Number(data[el.getAttribute('data-stat')]);
+          if (isFinite(v)) { el.textContent = money.format(v); changed = true; }
+        });
+        if (isFinite(Number(data.classrooms))) drawTally(Number(data.classrooms));
+        if (changed) $('report-note').textContent = 'Live figures, read from our records each time you open this page.';
+      })
+      .catch(function () { /* keep the sample numbers already on the page */ })
+      .then(function () { clearTimeout(timer); });
+  }
+  loadStats();
+
+  /* ---------- Volunteer form ---------- */
+  var form = $('vol-form');
+  var formStatus = $('form-status');
+  var sendBtn = form.querySelector('button[type=submit]');
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var PHONE_RE = /^[0-9+()\s-]{7,20}$/;
+
+  function checkVolunteer(p) {
+    if (p.name.length < 2) return 'Enter your full name.';
+    if (!EMAIL_RE.test(p.email)) return 'Enter a valid email address, like name@example.com.';
+    if (p.phone && !PHONE_RE.test(p.phone)) return 'Phone numbers can only use digits, spaces, + and brackets.';
+    if (!p.state) return 'Choose the state you are based in.';
+    if (!form.elements.consent.checked) return 'Tick the box to say we may contact you.';
+    return '';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fd = new FormData(form);
+
+    // Spam trap: if a bot filled the hidden field, pretend it worked and send nothing.
+    if (String(fd.get('website') || '').trim() !== '') {
+      show(formStatus, 'ok', 'Thank you. We have your details.');
+      form.reset();
+      return;
+    }
+
+    var payload = {
+      name: String(fd.get('name') || '').trim(),
+      email: String(fd.get('email') || '').trim(),
+      phone: String(fd.get('phone') || '').trim(),
+      state: String(fd.get('state') || ''),
+      help: fd.getAll('help').join(', '),
+      message: String(fd.get('message') || '').trim(),
+      website: ''
+    };
+
+    var problem = checkVolunteer(payload);
+    if (problem) { show(formStatus, 'err', problem); return; }
+
+    var first = payload.name.split(/\s+/)[0];
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Sending';
+
+    var send;
+    if (CONFIG.ENDPOINT) {
+      // Apps Script cannot answer cross site posts with readable replies, so we use no-cors.
+      // The browser sends the data but cannot read the reply. That is expected.
+      send = fetch(CONFIG.ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+    } else {
+      console.info('Demo mode: no ENDPOINT set yet. Form data:', payload);
+      send = Promise.resolve();
+    }
+
+    send.then(function () {
+      show(formStatus, 'ok', 'Thank you, ' + first + '. We have your details and will email you within three working days.');
+      form.reset();
+      setTimeout(loadStats, 2500);
+    }).catch(function () {
+      show(formStatus, 'err', 'Your details were not sent. Check your connection and try again.');
+    }).then(function () {
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Send my details';
+    });
+  });
+
+  /* ---------- Donate dialog (Paystack test mode) ---------- */
+  var dlg = $('give-dialog');
+  var giveForm = $('give-form');
+  var giveStatus = $('give-status');
+  var giveBtn = $('give-submit');
+  var amountEl = $('amount');
+  var currentProject = '';
+  var opener = null;
+
+  function isTestKey(k) { return /^pk_test_[A-Za-z0-9]{20,}$/.test(k); }
+
+  function loadPaystack() {
+    return new Promise(function (resolve, reject) {
+      if (window.PaystackPop) return resolve();
+      var s = document.createElement('script');
+      s.src = 'https://js.paystack.co/v1/inline.js';
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function setPreset(value) {
+    document.querySelectorAll('.preset').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-amount') === String(value)));
+    });
+  }
+
+  document.querySelectorAll('.give').forEach(function (b) {
+    b.addEventListener('click', function () {
+      opener = b;
+      currentProject = b.getAttribute('data-project');
+      $('give-project').textContent = 'Project: ' + currentProject + '. Test mode: no real money moves.';
+      giveStatus.hidden = true;
+      giveBtn.disabled = false;
+      giveBtn.textContent = 'Continue to payment';
+      if (typeof dlg.showModal === 'function') dlg.showModal();
+      amountEl.focus();
+    });
+  });
+
+  document.querySelectorAll('.preset').forEach(function (b) {
+    b.addEventListener('click', function () {
+      amountEl.value = b.getAttribute('data-amount');
+      setPreset(amountEl.value);
+    });
+  });
+  amountEl.addEventListener('input', function () { setPreset(amountEl.value); });
+
+  $('give-cancel').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('close', function () { if (opener) opener.focus(); });
+
+  giveForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var naira = Number(amountEl.value);
+    var email = $('give-email').value.trim();
+
+    // Validate on the page. Paystack checks again on its side.
+    if (!Number.isInteger(naira) || naira < 500 || naira > 5000000) {
+      show(giveStatus, 'err', 'Enter a whole amount from ₦500 to ₦5,000,000.'); return;
+    }
+    if (!EMAIL_RE.test(email)) {
+      show(giveStatus, 'err', 'Enter a valid email address for your receipt.'); return;
+    }
+    if (/^sk_/.test(CONFIG.PAYSTACK_PUBLIC_KEY)) {
+      show(giveStatus, 'err', 'Stop: a secret key (sk_...) is in the page settings. Remove it now and use your public test key.'); return;
+    }
+    if (!isTestKey(CONFIG.PAYSTACK_PUBLIC_KEY)) {
+      show(giveStatus, 'err', 'Demo mode: paste your Paystack test public key (pk_test_...) into CONFIG at the top of the script to turn payments on.'); return;
+    }
+
+    giveBtn.disabled = true;
+    giveBtn.textContent = 'Opening payment';
+
+    loadPaystack().then(function () {
+      var handler = window.PaystackPop.setup({
+        key: CONFIG.PAYSTACK_PUBLIC_KEY,
+        email: email,
+        amount: naira * 100,            // Paystack counts in kobo
+        currency: 'NGN',
+        ref: 'CHK' + Date.now() + Math.floor(Math.random() * 100000),
+        metadata: { custom_fields: [{ display_name: 'Project', variable_name: 'project', value: currentProject }] },
+        callback: function (res) {
+          show(giveStatus, 'ok', 'Thank you. Your test payment went through. Reference: ' + res.reference);
+          giveBtn.hidden = true;
+        },
+        onClose: function () {
+          giveBtn.disabled = false;
+          giveBtn.textContent = 'Continue to payment';
+        }
+      });
+      handler.openIframe();
+    }).catch(function () {
+      show(giveStatus, 'err', 'We could not reach Paystack. Check your connection and try again.');
+      giveBtn.disabled = false;
+      giveBtn.textContent = 'Continue to payment';
+    });
+  });
+})();
+</script>
+</body>
+</html>
