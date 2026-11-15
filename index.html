@@ -63,8 +63,8 @@ img,svg{max-width:100%}
 .tally-wrap{margin:0;border-top:2px solid rgba(243,241,234,.25);padding-top:1.5rem}
 #tally{display:flex;flex-wrap:wrap;gap:.5rem .75rem}
 #tally svg{width:52px;height:48px;fill:none;stroke:var(--chalk);stroke-width:3.4;stroke-linecap:round;overflow:visible}
-#tally path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .35s ease-out forwards;animation-delay:calc(var(--d) * 35ms)}
-@keyframes draw{to{stroke-dashoffset:0}}
+#tally svg{opacity:0;transform:translateY(6px);animation:rise .4s ease-out forwards;animation-delay:calc(var(--g) * 60ms)}
+@keyframes rise{to{opacity:1;transform:none}}
 .tally-wrap figcaption{margin-top:1rem;font-family:var(--slab);font-size:1.1rem}
 .tally-wrap strong{font-size:2.6rem;line-height:1;color:var(--pencil);margin-right:.35rem}
 
@@ -137,7 +137,7 @@ dialog::backdrop{background:rgba(20,33,61,.6)}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  #tally path{animation:none;stroke-dashoffset:0}
+    #tally svg{animation:none;opacity:1;transform:none}
 }
 </style>
 </head>
@@ -357,8 +357,10 @@ dialog::backdrop{background:rgba(20,33,61,.6)}
   var tally = $('tally');
   var NS = 'http://www.w3.org/2000/svg';
 
+  var drawn = -1;
   function drawTally(total) {
     total = Math.max(0, Math.min(150, Math.round(total)));
+    drawn = total;
     tally.textContent = '';
     tally.setAttribute('aria-label', total + ' classrooms renovated, shown as tally marks');
     var d = 0;
@@ -374,6 +376,7 @@ dialog::backdrop{background:rgba(20,33,61,.6)}
       var s = document.createElementNS(NS, 'svg');
       s.setAttribute('viewBox', '0 0 52 48');
       s.setAttribute('aria-hidden', 'true');
+      s.style.setProperty('--g', g);
       for (var i = 0; i < Math.min(n, 4); i++) {
         var j = ((g * 7 + i * 3) % 5 - 2) * 0.6;
         var x = 9 + i * 11;
@@ -398,7 +401,7 @@ dialog::backdrop{background:rgba(20,33,61,.6)}
           var v = Number(data[el.getAttribute('data-stat')]);
           if (isFinite(v)) { el.textContent = money.format(v); changed = true; }
         });
-        if (isFinite(Number(data.classrooms))) drawTally(Number(data.classrooms));
+        if (isFinite(Number(data.classrooms)) && Math.round(Number(data.classrooms)) !== drawn) drawTally(Number(data.classrooms));
         if (changed) $('report-note').textContent = 'Live figures, read from our records each time you open this page.';
       })
       .catch(function () { /* keep the sample numbers already on the page */ })
