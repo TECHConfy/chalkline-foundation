@@ -4,6 +4,9 @@ A fictional one page website for a charity that repairs and equips classrooms in
 
 All names and figures are samples. No real money moves.
 
+## Live Site: 
+https://chalkline-foundation.netlify.app/
+
 ## What it does
 
 - Mobile first impact page with a report card of key numbers and three funding projects.
@@ -47,10 +50,10 @@ Plain HTML, CSS and JavaScript in one file. No framework, no build step. Google 
 
 | Category | Score |
 | --- | --- |
-| Performance | (fill in) |
-| Accessibility | (fill in) |
-| Best practices | (fill in) |
-| SEO | (fill in) |
+| Performance | 73 |
+| Accessibility | 100 |
+| Best practices | 100 |
+| SEO | 100 |
 
 ## What I would do next
 
